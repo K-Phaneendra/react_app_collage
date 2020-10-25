@@ -53,6 +53,7 @@ function SpeechToText(props) {
           <DropZone
             setUploadedFile={(files) => setUploadedFile(files[0])}
             uploadedFile={uploadedFile}
+            message="Drag and drop a .wav file here, or click to select one"
           />
         </div>
         <div className="col-md-4 mb-2 mt-2">
