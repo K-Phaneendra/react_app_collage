@@ -15,7 +15,6 @@ export default function CardComponent({
       bg={variant.toLowerCase()}
       key={idx}
       text={variant.toLowerCase() === "light" ? "dark" : "white"}
-      className="mb-2"
     >
       <Card.Body>
         <Card.Title> {name} </Card.Title>
