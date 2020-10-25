@@ -6,7 +6,8 @@ export default function CardComponent({
   name,
   description,
   idx,
-  href
+  href,
+  buttonName
 }) {
   const variant = 'light'
   return (
@@ -25,7 +26,7 @@ export default function CardComponent({
       </Card.Body>
       <Card.Footer>
         <small className="text-muted">
-          <Button href={href} title={`Open ${name}`}>Open</Button>
+          <Button href={href} title={`Open ${name}`}>{buttonName}</Button>
         </small>
       </Card.Footer>
     </Card>
@@ -36,12 +37,14 @@ CardComponent.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
   idx: PropTypes.number,
-  href: PropTypes.string
+  href: PropTypes.string,
+  buttonName: PropTypes.string
 };
 CardComponent.defaultProps = {
   name: 'Card title',
   description: `Some quick example text to build on the card title and make up the bulk
   of the card's content.`,
   idx: 0,
-  href: '/'
+  href: '/',
+  buttonName: 'Open'
 };

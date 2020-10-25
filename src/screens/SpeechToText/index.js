@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import DropZone from "../../components/DropZone";
+import Card from '../../components/Card'
 import { Button, ListGroup } from "react-bootstrap";
 import { FaTrashAlt } from "react-icons/fa";
 import { uploadFile, convertAudioToText } from "../../actions/FlaskAPICalls";
 import { ToastMessage } from "../../components/ToastMessage";
 import { Input } from "antd";
+import sample_voice_english from "../../assets/media/sample_voice_english.wav";
 
 const { TextArea } = Input;
 
@@ -71,11 +73,21 @@ export default function SpeechToText() {
 
   return (
     <div>
-      <div>
-        <DropZone
-          setUploadedFile={(files) => setUploadedFile(files[0])}
-          uploadedFile={uploadedFile}
-        />
+      <div className="row">
+        <div className="col-md-8">
+          <DropZone
+            setUploadedFile={(files) => setUploadedFile(files[0])}
+            uploadedFile={uploadedFile}
+          />
+        </div>
+        <div className="col-md-4">
+          <Card
+            name="Sample audio file"
+            description="You can download this sample audio file and upload it to test the application"
+            href={sample_voice_english}
+            buttonName="Play audio"
+          />
+        </div>
       </div>
       <div className="pt-3">{displayUploadedItems()}</div>
       <div className="pt-3">
