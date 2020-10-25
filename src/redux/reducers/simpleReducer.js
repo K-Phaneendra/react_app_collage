@@ -1,11 +1,21 @@
-const initialState = {}
+import { LOADING } from "../actions/actionType"
 
-export default (state = initialState, action) => {
+const initialState = {
+  isLoading: false
+}
+
+export default function reducer(state = initialState, action) {
   switch (action.type) {
-   case 'SIMPLE_ACTION':
-    return {
-     result: action.payload
-    }
+    case LOADING.SET_LOADING:
+     return {
+      ...state,
+      isLoading: true
+     }
+     case LOADING.RESET_LOADING:
+      return {
+       ...state,
+       isLoading: false
+      }
    default:
     return state
   }
