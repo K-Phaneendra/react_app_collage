@@ -5,7 +5,7 @@ import Logo from "../assets/images/logo.svg";
 const Header = () => {
   return (
     <header>
-      <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg" fixed="top">
+      <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg">
         <Navbar.Brand href="/">
           <img
             alt={process.env.REACT_APP_NAME}

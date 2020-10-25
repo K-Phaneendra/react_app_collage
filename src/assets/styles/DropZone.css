@@ -1,0 +1,13 @@
+
+.dropzone-area {
+  border: 0.5px dashed;
+  padding: 2em;
+  text-align: center;
+}
+
+.dropzone-area svg {
+  margin-right: .5rem;
+  padding: .25rem;
+  width: 3.5em;
+  height: 3.5em;
+}

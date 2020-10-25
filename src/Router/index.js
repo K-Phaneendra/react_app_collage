@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Redirect, Switch, useLocation } from "react-router-dom";
 import Home from "../screens/Home/Home";
+import SpeechToText from "../screens/SpeechToText";
 
 export default function Router() {
   const location = useLocation();
@@ -11,6 +12,11 @@ export default function Router() {
       view: Home,
       displayName: "Home",
     },
+    {
+      pageLink: "/speech-to-text",
+      view: SpeechToText,
+      displayName: "speech-to-text"
+    }
   ];
 
   return (
