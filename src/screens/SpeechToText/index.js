@@ -58,7 +58,7 @@ function SpeechToText(props) {
         <div className="col-md-4">
           <Card
             name="Sample audio file"
-            description="You can download this sample audio file and upload it to test the application"
+            description="If you do not have an audio file to upload, you can download this sample audio file and upload it inorder to test the application.<br/>Note: Prefer chrome browser to do so"
             href={sample_voice_english}
             buttonName="Play audio"
           />
