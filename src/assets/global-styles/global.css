@@ -1,0 +1,181 @@
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.container-position {
+  position: relative;
+  top: 95px;
+  padding-bottom: 95px;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container, .container-sm {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container, .container-sm, .container-md {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container, .container-sm, .container-md, .container-lg {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container, .container-sm, .container-md, .container-lg, .container-xl {
+    max-width: 1140px;
+  }
+}
+
+.float-left {
+  float: left !important;
+}
+.float-right {
+  float: right !important;
+}
+.d-none {
+  display: none !important;
+}
+.d-lg-block {
+  display: block !important;
+}
+
+section {
+  padding: 30px 0;
+}
+.section-bg {
+  background-color: #f5f9fc;
+}
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+  color: #5c768d;
+}
+.section-title p {
+  margin-bottom: 0;
+}
+
+.full-width {
+  width: 100%;
+}
+.section-center {
+  justify-content: center;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+.nav-header {
+  background-color: #000000!important;
+}
+.nav-link {
+  color: #ddab4c!important;
+}
+
+/* breadcrum starts here */
+.breadcrum{
+  width: 100%;
+  position: relative;
+  /* background:url(../images/breadcrum.jpg)no-repeat center center;
+  background-size: cover; */
+}
+/* .breadcrum:before{
+  content:"";
+  position: absolute;
+  top: 0;
+  left:0;
+  width:100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.6;
+} */
+.breadcrum-title {
+  width: 100%;
+    /* position: absolute; */
+    /* top: 0; */
+    position: relative;
+    padding: 106px 50px;
+}
+.breadcrum-title h1{
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  width: 50%;
+  float:left;
+}
+.breadcrum-title .breadcrum-images{
+  width: 30%;
+  float: right;
+  position: absolute;
+  top: 22px;
+  right: 0;
+  display:none;
+}
+.breadcrum-title .breadcrum-images img{
+  width: 52%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+/* breadcrum ends here */
+
+.padding-0 {
+  padding: 0;
+}
+@media (max-width: 600px){  
+	.breadcrum-title {
+		padding: 36px 30px;
+  }
+  
+}
