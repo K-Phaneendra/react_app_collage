@@ -21,7 +21,7 @@ function Footer() {
 
       <div className="links">
         <a
-          href="https://github.com/K-Phaneendra/react_app_collage"
+          href="https://github.com/"
           target="_blank"
           rel="noopener noreferrer"
           title="GitHub repository"
