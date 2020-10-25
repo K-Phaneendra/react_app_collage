@@ -23,8 +23,8 @@ export default function SpeechToText() {
           <ListGroup>
             <ListGroup.Item>
               <div className="row">
-                <div className="col-md-8">{uploadedFile.name}</div>
-                <div className="col-md-4 text-right">
+                <div className="col-8">{uploadedFile.name}</div>
+                <div className="col-4 text-right">
                   <FaTrashAlt
                     fill="#dc3545"
                     onClick={deleteUploadedFile}
