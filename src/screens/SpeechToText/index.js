@@ -1,18 +1,17 @@
 import React, { useState } from "react";
+import { connect } from 'react-redux';
 import DropZone from "../../components/DropZone";
-import Card from '../../components/Card'
+import Card from "../../components/Card";
 import { Button, ListGroup } from "react-bootstrap";
 import { FaTrashAlt } from "react-icons/fa";
-import { uploadFile, convertAudioToText } from "../../actions/FlaskAPICalls";
-import { ToastMessage } from "../../components/ToastMessage";
+import { UPLOAD_AND_CONVERT } from '../../actions/SpeechToText_dispatchActions';
 import { Input } from "antd";
 import sample_voice_english from "../../assets/media/sample_voice_english.wav";
 
 const { TextArea } = Input;
 
-export default function SpeechToText() {
+function SpeechToText(props) {
   const [uploadedFile, setUploadedFile] = useState({});
-  const [convertedText, setConvertedText] = useState("");
 
   const deleteUploadedFile = () => {
     setUploadedFile({});
@@ -41,34 +40,10 @@ export default function SpeechToText() {
     }
   };
 
-  const submitUploadedFile = async () => {
+  const submitUploadedFile = () => {
     const formData = new FormData();
     formData.append("file", uploadedFile);
-    const APIResponse = await uploadFile(formData);
-    if (APIResponse.data.status === "failed") {
-      ToastMessage("error", "Failed to upload", APIResponse.data.message);
-    }
-    if (APIResponse.data.status === "success") {
-      ToastMessage(
-        "success",
-        "Uploaded successfully",
-        APIResponse.data.message
-      );
-      const uploadedFileName = APIResponse.data.filename;
-      const audioToTextResponse = await convertAudioToText(uploadedFileName);
-      if (audioToTextResponse.data.status === "failed") {
-        ToastMessage(
-          "error",
-          "Failed to convert",
-          audioToTextResponse.data.message
-        );
-        setConvertedText("");
-      }
-      // if success we receive converted text
-      if (audioToTextResponse.data.length > 0) {
-        setConvertedText(audioToTextResponse.data);
-      }
-    }
+    props.UPLOAD_AND_CONVERT(formData);
   };
 
   return (
@@ -92,7 +67,7 @@ export default function SpeechToText() {
       <div className="pt-3">{displayUploadedItems()}</div>
       <div className="pt-3">
         <TextArea
-          value={convertedText}
+          value={props.textFromAudio}
           placeholder="Converted text will display here"
           autoSize={{ minRows: 8, maxRows: 50 }}
         />
@@ -109,3 +84,15 @@ export default function SpeechToText() {
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  textFromAudio: state.speechToText.textFromAudio
+});
+const mapDispatchToProps = dispatch => {
+  return {
+    UPLOAD_AND_CONVERT: (body) => dispatch(UPLOAD_AND_CONVERT(body))
+  };
+
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SpeechToText)
