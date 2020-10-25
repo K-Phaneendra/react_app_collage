@@ -17,11 +17,11 @@ function Footer() {
         </a>
       </div>
 
-      <h5>{'Bunch of applications built by Phani by using technologies React, Redux, Bootstrap and many more with NodeJS / Python running on the backend'}</h5>
+      <h5>{'Built using React, Redux, Bootstrap and many more with NodeJS and Python running on the backend'}</h5>
 
       <div className="links">
         <a
-          href="/"
+          href="https://github.com/K-Phaneendra/react_app_collage"
           target="_blank"
           rel="noopener noreferrer"
           title="GitHub repository"

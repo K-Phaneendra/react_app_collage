@@ -8,6 +8,9 @@ import configureStore from './redux/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/global-styles/global.css'
 import './assets/global-styles/animate.css'
+// antd css
+import 'antd/dist/antd.css';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
