@@ -4,9 +4,9 @@ import Card from "../../components/Card";
 const Home = () => {
   const listOfProjects = [
     {
-      name: "Speech to text",
+      name: "Audio to text",
       description: "Upload an audio file to get text as an output",
-      href: "/speech-to-text"
+      href: "/audio-to-text"
     },
   ];
   return (
@@ -14,7 +14,7 @@ const Home = () => {
       <h1 className="section-title">List of projects</h1>
       {listOfProjects.map((item, i) => {
         return (
-          <div className="col-md-4">
+          <div key={i} className="col-md-4">
             <Card
               name={item.name}
               description={item.description}

@@ -4,13 +4,13 @@ import DropZone from "../../components/DropZone";
 import Card from "../../components/Card";
 import { Button, ListGroup } from "react-bootstrap";
 import { FaTrashAlt } from "react-icons/fa";
-import { UPLOAD_AND_CONVERT } from '../../actions/SpeechToText_dispatchActions';
+import { UPLOAD_AND_CONVERT } from '../../actions/dispatchActions/AudioToText';
 import { Input } from "antd";
 import sample_voice_english from "../../assets/media/sample_voice_english.wav";
 
 const { TextArea } = Input;
 
-function SpeechToText(props) {
+function AudioToText(props) {
   const [uploadedFile, setUploadedFile] = useState({});
 
   const deleteUploadedFile = () => {
@@ -87,7 +87,7 @@ function SpeechToText(props) {
 }
 
 const mapStateToProps = state => ({
-  textFromAudio: state.speechToText.textFromAudio
+  textFromAudio: state.audioToText.textFromAudio
 });
 const mapDispatchToProps = dispatch => {
   return {
@@ -96,4 +96,4 @@ const mapDispatchToProps = dispatch => {
 
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SpeechToText)
+export default connect(mapStateToProps, mapDispatchToProps)(AudioToText)
