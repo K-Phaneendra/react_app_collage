@@ -14,12 +14,14 @@ const Home = () => {
       <h1 className="section-title">List of projects</h1>
       {listOfProjects.map((item, i) => {
         return (
-          <Card
-            name={item.name}
-            description={item.description}
-            idx={i}
-            href={item.href}
-          />
+          <div className="col-md-4">
+            <Card
+              name={item.name}
+              description={item.description}
+              idx={i}
+              href={item.href}
+            />
+          </div>
         );
       })}
     </div>

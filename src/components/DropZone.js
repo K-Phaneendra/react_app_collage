@@ -3,8 +3,12 @@ import { useDropzone } from "react-dropzone";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import "../assets/styles/DropZone.css";
 import { ToastMessage } from "./ToastMessage";
+import PropTypes from 'prop-types';
 
-function DropZone({ setUploadedFile }) {
+function DropZone({
+  setUploadedFile,
+  message
+}) {
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles.length === 0) {
       ToastMessage('error', 'Invalid file', 'Please upload .wav file. <br/>Tip: You can get it if you record your voice and save it')
@@ -26,12 +30,18 @@ function DropZone({ setUploadedFile }) {
         </p>
       ) : (
         <p>
-          <FaCloudUploadAlt /> Drag 'n' drop some files here, or click to select
-          files
+          <FaCloudUploadAlt /> {message}
         </p>
       )}
     </div>
   );
+}
+
+DropZone.propTypes = {
+  message: PropTypes.string
+}
+DropZone.defaultProps = {
+  message: 'Drag and drop file(s) here, or click to select file(s)'
 }
 
 export default DropZone;

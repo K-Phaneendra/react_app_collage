@@ -49,16 +49,17 @@ function SpeechToText(props) {
   return (
     <div>
       <div className="row">
-        <div className="col-md-8">
+        <div className="col-md-8 mb-2 mt-2">
           <DropZone
             setUploadedFile={(files) => setUploadedFile(files[0])}
             uploadedFile={uploadedFile}
+            message="Drag and drop a .wav file here, or click to select one"
           />
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 mb-2 mt-2">
           <Card
             name="Sample audio file"
-            description="You can download this sample audio file and upload it to test the application"
+            description="If you do not have an audio file to upload, you can download this sample audio file and upload it inorder to test the application.<br/>Note: Prefer chrome browser to do so"
             href={sample_voice_english}
             buttonName="Play audio"
           />
