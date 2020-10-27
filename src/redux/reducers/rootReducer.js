@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import simpleReducer from './simpleReducer';
-import speechToText from './speechToText'
+import audioToText from './audioToText'
 
 export default combineReducers({
  simpleReducer,
- speechToText
+ audioToText
 });

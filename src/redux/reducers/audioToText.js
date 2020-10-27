@@ -1,4 +1,4 @@
-import { SPEECH_TO_TEXT } from "../actions/actionType"
+import { AUDIO_TO_TEXT } from "../actions/actionType"
 
 const initialState = {
   textFromAudio: ''
@@ -6,7 +6,7 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case SPEECH_TO_TEXT.UPLOAD_AND_CONVERT:
+    case AUDIO_TO_TEXT.UPLOAD_AND_CONVERT:
      return {
       ...state,
       textFromAudio: action.payload
