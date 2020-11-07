@@ -74,10 +74,10 @@ function WebKitSpeechRecognition() {
     if (recordingStarted) {
       return (
         <div id="bars">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
         </div>
       );
     }
