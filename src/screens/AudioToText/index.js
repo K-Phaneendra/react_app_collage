@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import DropZone from "../../components/DropZone";
 import Card from "../../components/Card";
 import { Button, ListGroup } from "react-bootstrap";
 import { FaTrashAlt } from "react-icons/fa";
-import { UPLOAD_AND_CONVERT } from '../../actions/dispatchActions/AudioToText';
+import { UPLOAD_AND_CONVERT } from "../../actions/dispatchActions/AudioToText";
 import { Input } from "antd";
 import sample_voice_english from "../../assets/media/sample_voice_english.wav";
 
@@ -48,6 +48,13 @@ function AudioToText(props) {
 
   return (
     <div>
+      <div className="text-center">
+        <h1>Audio file to text</h1>
+        <h3>
+          Upload an audio file and the transcript of your audio will be
+          displayed below
+        </h3>
+      </div>
       <div className="row">
         <div className="col-md-8 mb-2 mt-2">
           <DropZone
@@ -86,14 +93,13 @@ function AudioToText(props) {
   );
 }
 
-const mapStateToProps = state => ({
-  textFromAudio: state.audioToText.textFromAudio
+const mapStateToProps = (state) => ({
+  textFromAudio: state.audioToText.textFromAudio,
 });
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    UPLOAD_AND_CONVERT: (body) => dispatch(UPLOAD_AND_CONVERT(body))
+    UPLOAD_AND_CONVERT: (body) => dispatch(UPLOAD_AND_CONVERT(body)),
   };
-
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AudioToText)
+export default connect(mapStateToProps, mapDispatchToProps)(AudioToText);
