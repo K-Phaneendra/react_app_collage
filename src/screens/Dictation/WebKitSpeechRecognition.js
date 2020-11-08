@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import "../../assets/styles/SpeechToText.css";
 import SpeechRecognition, {
   useSpeechRecognition,
@@ -7,10 +8,12 @@ import { Input } from "antd";
 import { Button } from "react-bootstrap";
 import { AiFillPrinter } from "react-icons/ai";
 import { FaMicrophone } from "react-icons/fa";
+import { set_printable_content } from "../../redux/actions";
+import { withRouter } from "react-router-dom";
 
 const { TextArea } = Input;
 
-function WebKitSpeechRecognition() {
+function WebKitSpeechRecognition(props) {
   const [recordingStarted, setRecordingStarted] = useState(false);
   const [micPermissionGranted, setMicPermissionGranted] = useState(false);
   const [micPromptMsg, setMicPromptMsg] = useState("");
@@ -141,23 +144,9 @@ function WebKitSpeechRecognition() {
   // };
 
   const printText = () => {
-    var mywindow = window.open("", "PRINT", "height=400,width=600");
-
-    mywindow.document.write(
-      "<html><head><title>" + process.env.REACT_APP_NAME + "</title>"
-    );
-    mywindow.document.write("</head><body >");
-    mywindow.document.write("<h1>" + "Dictate" + "</h1>");
-    mywindow.document.write(transcript);
-    mywindow.document.write("</body></html>");
-
-    mywindow.document.close(); // necessary for IE >= 10
-    mywindow.focus(); // necessary for IE >= 10*/
-
-    mywindow.print();
-    mywindow.close();
-
-    return true;
+    const printableText = transcript;
+    props.history.push('/print-screen')
+    props.SET_PRINTABLE_CONTENT(printableText);
   };
 
   return (
@@ -190,7 +179,7 @@ function WebKitSpeechRecognition() {
             {recordingStarted && transcript === "" && (
               <div className="row d-flex justify-content-center">
                 if you are speaking but unable to see the text below, then
-                please run this application on{" "}
+                please run this application on&nbsp;
                 <a
                   href="https://www.google.com/intl/en_in/chrome/"
                   target="_blank"
@@ -223,7 +212,6 @@ function WebKitSpeechRecognition() {
           </Button>
         </div>
         <TextArea
-          id="transcript-textarea"
           value={transcript}
           placeholder="Your audio note will display here"
           autoSize={{ minRows: 8, maxRows: 50 }}
@@ -233,4 +221,13 @@ function WebKitSpeechRecognition() {
   );
 }
 
-export default WebKitSpeechRecognition;
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+  SET_PRINTABLE_CONTENT: (body) => dispatch(set_printable_content(body)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(WebKitSpeechRecognition));

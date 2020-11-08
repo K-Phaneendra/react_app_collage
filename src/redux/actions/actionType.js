@@ -4,5 +4,9 @@ export const LOADING = {
 };
 
 export const AUDIO_TO_TEXT = {
-  UPLOAD_AND_CONVERT: "UPLOAD_AND_CONVERT"
-}
+  UPLOAD_AND_CONVERT: "UPLOAD_AND_CONVERT",
+};
+
+export const PRINT = {
+  CONTENT: "CONTENT",
+};
