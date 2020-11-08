@@ -3,6 +3,7 @@ import { Route, Redirect, Switch, useLocation } from "react-router-dom";
 import Home from "../screens/Home/Home";
 import AudioToText from "../screens/AudioToText";
 import Dictation from "../screens/Dictation/WebKitSpeechRecognition";
+import PrintableScreen from "../screens/PrintableScreen";
 
 export default function Router() {
   const location = useLocation();
@@ -22,6 +23,11 @@ export default function Router() {
       pageLink: "/dictation",
       view: Dictation,
       displayName: "dictation",
+    },
+    {
+      pageLink: "/print-screen",
+      view: PrintableScreen,
+      displayName: "Print screen",
     },
   ];
 
