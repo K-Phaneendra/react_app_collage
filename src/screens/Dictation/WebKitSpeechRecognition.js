@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../assets/styles/SpeechToText.css";
 import SpeechRecognition, {
   useSpeechRecognition,
@@ -6,17 +6,41 @@ import SpeechRecognition, {
 import { Input } from "antd";
 import { Button } from "react-bootstrap";
 import { AiFillPrinter } from "react-icons/ai";
+import { FaMicrophone } from "react-icons/fa";
 
 const { TextArea } = Input;
 
 function WebKitSpeechRecognition() {
   const [recordingStarted, setRecordingStarted] = useState(false);
+  const [micPermissionGranted, setMicPermissionGranted] = useState(false);
+  const [micPromptMsg, setMicPromptMsg] = useState("");
 
   const commands = [];
   const { transcript, resetTranscript } = useSpeechRecognition({
     transcribing: true,
     clearTranscriptOnListen: true,
     commands,
+  });
+
+  const checkForAudioPermission = () => {
+    navigator.permissions.query({ name: "microphone" }).then(function (result) {
+      if (result.state === "granted") {
+        // PERMISSION GRANTED, SHOW BUTTONS TO OPERATE MIC
+        setMicPermissionGranted(true);
+        setMicPromptMsg("");
+      } else if (result.state === "prompt") {
+        const msg = "Please allow microphone to use this application.";
+        setMicPromptMsg(msg);
+      } else if (result.state === "denied") {
+        // Permission was denied
+        const msg = "Please allow microphone to use this application.";
+        setMicPromptMsg(msg);
+      }
+    });
+  };
+
+  useEffect(() => {
+    checkForAudioPermission();
   });
 
   // IF BROWSER DOES NOT SUPPORT SpeechRecognition
@@ -39,6 +63,29 @@ function WebKitSpeechRecognition() {
       </div>
     );
   }
+
+  const requestMicPermission = () => {
+    navigator.getUserMedia(
+      // constraints
+      {
+        audio: true,
+      },
+
+      // successCallback
+      function (localMediaStream) {
+        if (localMediaStream.active) {
+          setMicPermissionGranted(true);
+        }
+      },
+
+      // errorCallback
+      function (err) {
+        if (err.message === "Permission denied") {
+          // Explain why you need permission and how to update the permission setting
+        }
+      }
+    );
+  };
 
   const startListening = () => {
     setRecordingStarted(true);
@@ -117,25 +164,56 @@ function WebKitSpeechRecognition() {
     <div>
       <div className="text-center">
         <h1>Dictate</h1>
-        <h3>
-          Click on the "Speak" button and start speaking. The transcript of your
-          audio will display below
-        </h3>
+        {micPermissionGranted && (
+          <h3>
+            Click on the "Speak" button and start speaking. The transcript of
+            your audio will display below
+          </h3>
+        )}
       </div>
       <div className="text-center">
-        <div className="row voice-animation-container d-flex justify-content-center">
-          {/* {displayRecordingAnimation()} */}
-          {recordingStarted && <div>Listening...</div>}
-        </div>
-        {displayStartStopButtons()}&nbsp;
-        <Button
-          onClick={resetTranscript}
-          title="reset"
-          variant="secondary"
-          className="circle-button"
-        >
-          Reset
-        </Button>
+        {!micPermissionGranted && (
+          <div>
+            {micPromptMsg}{" "}
+            <Button onClick={requestMicPermission}>
+              Allow&nbsp;
+              <FaMicrophone />
+            </Button>
+          </div>
+        )}
+        {micPermissionGranted && (
+          <>
+            <div className="row voice-animation-container d-flex justify-content-center">
+              {/* {displayRecordingAnimation()} */}
+              {recordingStarted && <div>Listening...</div>}
+            </div>
+            {recordingStarted && transcript === "" && (
+              <div className="row d-flex justify-content-center">
+                if you are speaking but unable to see the text below, then
+                please run this application on{" "}
+                <a
+                  href="https://www.google.com/intl/en_in/chrome/"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Download google chrome browser"
+                >
+                  Google Chrome browser
+                </a>
+              </div>
+            )}
+            <div className="mt-3">
+              {displayStartStopButtons()}&nbsp;
+              <Button
+                onClick={resetTranscript}
+                title="reset"
+                variant="secondary"
+                className="circle-button"
+              >
+                Reset
+              </Button>
+            </div>
+          </>
+        )}
       </div>
 
       <div className="mt-3">
