@@ -24,7 +24,7 @@ const Header = () => {
             <Nav.Link href="/audio-to-text">Audio to text</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="/speech-to-text">Speech to text</Nav.Link>
+            <Nav.Link href="/dictation">Dictate</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

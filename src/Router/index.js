@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect, Switch, useLocation } from "react-router-dom";
 import Home from "../screens/Home/Home";
 import AudioToText from "../screens/AudioToText";
-import SpeechToText from "../screens/SpeechToText/WebKitSpeechRecognition";
+import Dictation from "../screens/Dictation/WebKitSpeechRecognition";
 
 export default function Router() {
   const location = useLocation();
@@ -19,9 +19,9 @@ export default function Router() {
       displayName: "audio-to-text",
     },
     {
-      pageLink: "/speech-to-text",
-      view: SpeechToText,
-      displayName: "speech-to-text",
+      pageLink: "/dictation",
+      view: Dictation,
+      displayName: "dictation",
     },
   ];
 
