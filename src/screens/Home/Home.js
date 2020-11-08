@@ -9,9 +9,9 @@ const Home = () => {
       href: "/audio-to-text",
     },
     {
-      name: "Speech to text",
-      description: "Record audio through browser, to get text as an output.",
-      href: "/speech-to-text",
+      name: "Dictate",
+      description: "Dictate to your browser to get text as an output.",
+      href: "/dictation",
     },
   ];
   return (

@@ -1,0 +1,158 @@
+import React, { useState } from "react";
+import "../../assets/styles/SpeechToText.css";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
+import { Input } from "antd";
+import { Button } from "react-bootstrap";
+import { AiFillPrinter } from "react-icons/ai";
+
+const { TextArea } = Input;
+
+function WebKitSpeechRecognition() {
+  const [recordingStarted, setRecordingStarted] = useState(false);
+
+  const commands = [];
+  const { transcript, resetTranscript } = useSpeechRecognition({
+    transcribing: true,
+    clearTranscriptOnListen: true,
+    commands,
+  });
+
+  // IF BROWSER DOES NOT SUPPORT SpeechRecognition
+  if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+    return (
+      <div className="text-center">
+        <h1>Speech to text</h1>
+        <h3>
+          Recording audio is not supported by your browser, please use{" "}
+          <a
+            href="https://www.google.com/intl/en_in/chrome/"
+            target="_blank"
+            rel="noreferrer"
+            title="Download google chrome browser"
+          >
+            Google Chrome browser
+          </a>{" "}
+          instead
+        </h3>
+      </div>
+    );
+  }
+
+  const startListening = () => {
+    setRecordingStarted(true);
+    return SpeechRecognition.startListening({
+      continuous: true,
+    });
+  };
+  const stopListening = () => {
+    setRecordingStarted(false);
+    return SpeechRecognition.stopListening();
+  };
+
+  const displayStartStopButtons = () => {
+    if (recordingStarted) {
+      return (
+        <>
+          <Button
+            onClick={stopListening}
+            title="stop"
+            variant="outline-danger"
+            className="circle-button"
+          >
+            Stop
+          </Button>
+        </>
+      );
+    }
+    return (
+      <Button
+        onClick={startListening}
+        title="start"
+        variant="outline-danger"
+        className="circle-button"
+      >
+        Speak
+      </Button>
+    );
+  };
+
+  // currently not using animation while recording
+  // const displayRecordingAnimation = () => {
+  //   if (recordingStarted) {
+  //     return (
+  //       <div id="bars">
+  //         <div className="bar"></div>
+  //         <div className="bar"></div>
+  //         <div className="bar"></div>
+  //         <div className="bar"></div>
+  //       </div>
+  //     );
+  //   }
+  //   return null;
+  // };
+
+  const printText = () => {
+    var mywindow = window.open("", "PRINT", "height=400,width=600");
+
+    mywindow.document.write(
+      "<html><head><title>" + process.env.REACT_APP_NAME + "</title>"
+    );
+    mywindow.document.write("</head><body >");
+    mywindow.document.write("<h1>" + "Dictate" + "</h1>");
+    mywindow.document.write(transcript);
+    mywindow.document.write("</body></html>");
+
+    mywindow.document.close(); // necessary for IE >= 10
+    mywindow.focus(); // necessary for IE >= 10*/
+
+    mywindow.print();
+    mywindow.close();
+
+    return true;
+  };
+
+  return (
+    <div>
+      <div className="text-center">
+        <h1>Dictate</h1>
+        <h3>
+          Click on the "Speak" button and start speaking. The transcript of your
+          audio will display below
+        </h3>
+      </div>
+      <div className="text-center">
+        <div className="row voice-animation-container d-flex justify-content-center">
+          {/* {displayRecordingAnimation()} */}
+          {recordingStarted && <div>Listening...</div>}
+        </div>
+        {displayStartStopButtons()}&nbsp;
+        <Button
+          onClick={resetTranscript}
+          title="reset"
+          variant="secondary"
+          className="circle-button"
+        >
+          Reset
+        </Button>
+      </div>
+
+      <div className="mt-3">
+        <div className="row justify-content-end">
+          <Button onClick={printText} variant="light" title="print notes">
+            <AiFillPrinter />
+          </Button>
+        </div>
+        <TextArea
+          id="transcript-textarea"
+          value={transcript}
+          placeholder="Your audio note will display here"
+          autoSize={{ minRows: 8, maxRows: 50 }}
+        />
+      </div>
+    </div>
+  );
+}
+
+export default WebKitSpeechRecognition;

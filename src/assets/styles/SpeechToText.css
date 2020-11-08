@@ -42,4 +42,5 @@
 
 .voice-animation-container {
   height: 5rem;
+  align-content: center;
 }
