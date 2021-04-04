@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import DropZone from "../../components/DropZone";
 import Card from "../../components/Card";
 import { Button, ListGroup } from "react-bootstrap";
-import { FaTrashAlt } from "react-icons/fa";
-import { UPLOAD_AND_CONVERT } from "../../actions/dispatchActions/AudioToText";
+import { UPLOAD_AND_CONVERT } from "../../redux/dispatchActions/AudioToText";
 import { Input } from "antd";
 import sample_voice_english from "../../assets/media/sample_voice_english.wav";
+import { DustbinIcon } from "../../assets/icons/icons";
 
 const { TextArea } = Input;
 
@@ -26,7 +26,7 @@ function AudioToText(props) {
               <div className="row">
                 <div className="col-8">{uploadedFile.name}</div>
                 <div className="col-4 text-right">
-                  <FaTrashAlt
+                  <DustbinIcon
                     fill="#dc3545"
                     onClick={deleteUploadedFile}
                     className="cursor-pointer"

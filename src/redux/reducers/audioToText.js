@@ -1,4 +1,4 @@
-import { AUDIO_TO_TEXT } from "../actions/actionType"
+import { AUDIO_TO_TEXT } from "../reducerActions/actionType"
 
 const initialState = {
   textFromAudio: ''

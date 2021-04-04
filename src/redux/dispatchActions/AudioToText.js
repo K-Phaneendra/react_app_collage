@@ -1,10 +1,10 @@
-import { uploadFile, convertAudioToText } from "../FlaskAPICalls";
+import { uploadFile, convertAudioToText } from "../../actions/FlaskAPICalls";
 import { ToastMessage } from "../../components/ToastMessage";
 import {
   setLoading,
   resetLoading,
   audioToText_UPLOAD_AND_CONVERT,
-} from "../../redux/actions";
+} from "../reducerActions";
 
 // UPLOAD AUDIO FILE TO UPLOAD API AND TO CONVERSION API
 export const UPLOAD_AND_CONVERT = (file) => {

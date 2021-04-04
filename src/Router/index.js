@@ -4,30 +4,27 @@ import Home from "../screens/Home/Home";
 import AudioToText from "../screens/AudioToText";
 import Dictation from "../screens/Dictation/WebKitSpeechRecognition";
 import PrintableScreen from "../screens/PrintableScreen";
+import paths from './paths.json';
 
 export default function Router() {
   const location = useLocation();
 
   const pages = [
     {
-      pageLink: "/",
+      pageLink: paths.home,
       view: Home,
-      displayName: "Home",
     },
     {
-      pageLink: "/audio-to-text",
+      pageLink: paths.audioToText,
       view: AudioToText,
-      displayName: "audio-to-text",
     },
     {
-      pageLink: "/dictation",
+      pageLink: paths.dictation,
       view: Dictation,
-      displayName: "dictation",
     },
     {
-      pageLink: "/print-screen",
+      pageLink: paths.printScreen,
       view: PrintableScreen,
-      displayName: "Print screen",
     },
   ];
 

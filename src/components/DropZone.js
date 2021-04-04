@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import { FaCloudUploadAlt } from "react-icons/fa";
 import "../assets/styles/DropZone.css";
 import { ToastMessage } from "./ToastMessage";
 import PropTypes from 'prop-types';
+import { CloudUploadIcon } from "../assets/icons/icons";
 
 function DropZone({
   setUploadedFile,
@@ -26,11 +26,11 @@ function DropZone({
       <input {...getInputProps()} />
       {isDragActive ? (
         <p>
-          <FaCloudUploadAlt /> Drop the files here ...
+          <CloudUploadIcon /> Drop the files here ...
         </p>
       ) : (
         <p>
-          <FaCloudUploadAlt /> {message}
+          <CloudUploadIcon /> {message}
         </p>
       )}
     </div>
