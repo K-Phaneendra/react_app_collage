@@ -1,4 +1,4 @@
-import { LOADING, PRINT } from "../actions/actionType";
+import { LOADING, PRINT } from "../reducerActions/actionType";
 
 const initialState = {
   isLoading: false,

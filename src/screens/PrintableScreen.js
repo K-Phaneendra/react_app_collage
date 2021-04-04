@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { AiFillPrinter } from "react-icons/ai";
+import { BackArrow, PrinterIcon } from "../assets/icons/icons";
 
 function PrintableScreen(props) {
   const { printableContent } = props;
@@ -15,13 +14,13 @@ function PrintableScreen(props) {
       <div className="row justify-content-between">
         <div>
           <Button onClick={() => props.history.goBack()} title="back">
-            <IoMdArrowRoundBack />
+            <BackArrow />
             &nbsp;Back
           </Button>
         </div>
         <div>
           <Button onClick={() => window.print()} variant="light" title="print notes">
-            <AiFillPrinter />
+            <PrinterIcon />
           </Button>
         </div>
       </div>
@@ -32,7 +31,7 @@ function PrintableScreen(props) {
 
 const mapStateToProps = (state) => {
   return {
-    printableContent: state.simpleReducer.printableContent,
+    printableContent: state.globalReducer.printableContent,
   };
 };
 

@@ -21,7 +21,7 @@ function App(props) {
 }
 
 const mapStateToProps = state => ({
-  isLoading: state.simpleReducer.isLoading
+  isLoading: state.globalReducer.isLoading
 });
 
 export default connect(mapStateToProps)(App);

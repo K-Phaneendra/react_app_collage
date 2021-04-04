@@ -1,0 +1,11 @@
+.pro-sidebar {
+  position: absolute;
+}
+/* to completely close the side menu when collapsed */
+.pro-sidebar.collapsed {
+  width: 0;
+  min-width: 0;
+}
+.pro-sidebar .pro-menu .pro-menu-item.active {
+  background-color: black;
+}

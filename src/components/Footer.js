@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaNodeJs, FaPython, FaReact } from 'react-icons/fa';
+import { GithubIcon, NodeJsIcon, PythonIcon, ReactJsIcon } from '../assets/icons/icons';
 import '../assets/styles/Footer.css';
 
 function Footer() {
@@ -26,7 +26,7 @@ function Footer() {
           rel="noopener noreferrer"
           title="GitHub repository"
         >
-          <FaGithub fill="" />
+          <GithubIcon fill="" />
         </a>
 
         <a
@@ -35,7 +35,7 @@ function Footer() {
           rel="noopener noreferrer"
           title="React JS"
         >
-          <FaReact fill="#61DAFB" />
+          <ReactJsIcon fill="#61DAFB" />
         </a>
 
         <a
@@ -44,7 +44,7 @@ function Footer() {
           rel="noopener noreferrer"
           title="Node JS"
         >
-          <FaNodeJs fill="#43853d" />
+          <NodeJsIcon fill="#43853d" />
         </a>
 
         <a
@@ -53,7 +53,7 @@ function Footer() {
           rel="noopener noreferrer"
           title="Python"
         >
-          <FaPython fill="" />
+          <PythonIcon fill="" />
         </a>
 
       </div>

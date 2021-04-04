@@ -1,12 +1,27 @@
-import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import React, { useState } from "react";
+import { Navbar, Nav, Button } from "react-bootstrap";
+
 import Logo from "../assets/images/logo.svg";
+import { MenuIcon } from "../assets/icons/icons";
+import paths from "../Router/paths.json";
+
+import Sidemenu from "./Sidemenu";
 
 const Header = () => {
+  const [isMenuCollapsed, setIsMenuCollapsed] = useState(true);
+
+  // runs on side menu toggle
+  const toggleSidemenu = () => {
+    setIsMenuCollapsed(prev => !prev);
+  };
+
   return (
     <header>
       <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg">
-        <Navbar.Brand href="/">
+        <Button onClick={toggleSidemenu} variant="outline-secondary" title="menu">
+          <MenuIcon />
+        </Button>
+        <Navbar.Brand href={paths.home}>
           <img
             alt={process.env.REACT_APP_NAME}
             src={Logo}
@@ -17,17 +32,11 @@ const Header = () => {
           />
           Phani's app collage
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto"></Nav>
-          <Nav>
-            <Nav.Link href="/audio-to-text">Audio to text</Nav.Link>
-          </Nav>
-          <Nav>
-            <Nav.Link href="/dictation">Dictate</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
       </Navbar>
+      <Sidemenu
+        isMenuCollapsed={isMenuCollapsed}
+        toggleSidemenu={toggleSidemenu}
+      />
     </header>
   );
 };

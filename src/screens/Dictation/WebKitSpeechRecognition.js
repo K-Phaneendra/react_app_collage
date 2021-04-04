@@ -6,10 +6,9 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 import { Input } from "antd";
 import { Button } from "react-bootstrap";
-import { AiFillPrinter } from "react-icons/ai";
-import { FaMicrophone } from "react-icons/fa";
-import { set_printable_content } from "../../redux/actions";
+import { set_printable_content } from "../../redux/reducerActions";
 import { withRouter } from "react-router-dom";
+import { MicrophoneIcon, PrinterIcon } from "../../assets/icons/icons";
 
 const { TextArea } = Input;
 
@@ -145,7 +144,7 @@ function WebKitSpeechRecognition(props) {
 
   const printText = () => {
     const printableText = transcript;
-    props.history.push('/print-screen')
+    props.history.push("/print-screen");
     props.SET_PRINTABLE_CONTENT(printableText);
   };
 
@@ -166,7 +165,7 @@ function WebKitSpeechRecognition(props) {
             {micPromptMsg}{" "}
             <Button onClick={requestMicPermission}>
               Allow&nbsp;
-              <FaMicrophone />
+              <MicrophoneIcon />
             </Button>
           </div>
         )}
@@ -208,7 +207,7 @@ function WebKitSpeechRecognition(props) {
       <div className="mt-3">
         <div className="row justify-content-end">
           <Button onClick={printText} variant="light" title="print notes">
-            <AiFillPrinter />
+            <PrinterIcon />
           </Button>
         </div>
         <TextArea
