@@ -4,6 +4,7 @@ import Home from "../screens/Home/Home";
 import AudioToText from "../screens/AudioToText";
 import Dictation from "../screens/Dictation/WebKitSpeechRecognition";
 import PrintableScreen from "../screens/PrintableScreen";
+import Dashboard from "../screens/Dashboard";
 
 export default function Router() {
   const location = useLocation();
@@ -28,6 +29,11 @@ export default function Router() {
       pageLink: "/print-screen",
       view: PrintableScreen,
       displayName: "Print screen",
+    },
+    {
+      pageLink: "/dashboard",
+      view: Dashboard,
+      displayName: "Dashboard",
     },
   ];
 

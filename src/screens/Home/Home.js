@@ -13,6 +13,11 @@ const Home = () => {
       description: "Dictate to your browser to get text as an output.",
       href: "/dictation",
     },
+    {
+      name: "Dashboard",
+      description: "Displays a sample dashboard with graphs in it.",
+      href: "/dashboard",
+    },
   ];
   return (
     <div className="listOfProjects">

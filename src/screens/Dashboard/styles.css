@@ -1,0 +1,16 @@
+.rechart-container-half-donut {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  width: auto;
+  height: 12rem;
+}
+.rechart-container-full-bar-graph {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 67rem;
+  height: 20rem;
+}
