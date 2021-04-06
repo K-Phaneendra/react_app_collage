@@ -5,6 +5,7 @@ import AudioToText from "../screens/AudioToText";
 import Dictation from "../screens/Dictation/WebKitSpeechRecognition";
 import PrintableScreen from "../screens/PrintableScreen";
 import paths from './paths.json';
+import FaceRecognition from "../screens/FaceRecognition";
 
 export default function Router() {
   const location = useLocation();
@@ -21,6 +22,10 @@ export default function Router() {
     {
       pageLink: paths.dictation,
       view: Dictation,
+    },
+    {
+      pageLink: paths.faceRecognition,
+      view: FaceRecognition,
     },
     {
       pageLink: paths.printScreen,

@@ -13,6 +13,11 @@ const Home = () => {
       description: "Dictate to your browser to get text as an output.",
       href: "/dictation",
     },
+    {
+      name: "Face recognition",
+      description: "Upload an image with human face, my machine learning model will tell if it is a male or female face",
+      href: "/face-recognition",
+    },
   ];
   return (
     <div className="listOfProjects">

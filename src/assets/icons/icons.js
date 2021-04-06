@@ -8,8 +8,9 @@ import {
   FaCloudUploadAlt,
   FaTrashAlt,
   FaMicrophone,
-  FaFileAudio
+  FaFileAudio,
 } from "react-icons/fa";
+import { MdFace } from "react-icons/md";
 
 export const PrinterIcon = AiFillPrinter;
 export const BackArrow = IoMdArrowRoundBack;
@@ -22,3 +23,4 @@ export const DustbinIcon = FaTrashAlt;
 export const MicrophoneIcon = FaMicrophone;
 export const AudioFileIcon = FaFileAudio;
 export const MenuIcon = AiOutlineMenu;
+export const FaceIcon = MdFace;

@@ -25,7 +25,7 @@ export const UPLOAD_AND_CONVERT = (file) => {
         ToastMessage(
           "success",
           "Uploaded successfully",
-          uploadFileResponse.data.message
+          "File uploaded successfully, conversion to text has begun"
         );
         const uploadedFileName = uploadFileResponse.data.filename;
         dispatch(setLoading());
