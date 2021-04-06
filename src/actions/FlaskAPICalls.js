@@ -20,3 +20,12 @@ export const convertAudioToText = async (filename) => {
   const APIResponse = await POST(url, { filename }, axiosConfig);
   return APIResponse;
 };
+
+export const predictGenderByImageName = async (filename) => {
+  const url = `${FlaskAPI}/predict-gender-by-image-name`;
+  const axiosConfig = {
+    headers: {},
+  };
+  const APIResponse = await POST(url, { filename }, axiosConfig);
+  return APIResponse;
+}

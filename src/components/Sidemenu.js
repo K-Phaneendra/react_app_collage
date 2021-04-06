@@ -1,7 +1,7 @@
 import React from "react";
 import { ProSidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 
-import { AudioFileIcon, MicrophoneIcon } from "../assets/icons/icons";
+import { AudioFileIcon, FaceIcon, MicrophoneIcon } from "../assets/icons/icons";
 
 import paths from "../Router/paths.json";
 
@@ -12,7 +12,6 @@ function Sidemenu({ isMenuCollapsed, toggleSidemenu }) {
   // checks if the menu item is active or not
   const isMenuItemActive = (path) => {
     const pathname = window.location.pathname;
-    console.log(path, pathname);
     if (path === pathname) {
       return true;
     }
@@ -33,6 +32,12 @@ function Sidemenu({ isMenuCollapsed, toggleSidemenu }) {
           active={isMenuItemActive(paths.dictation)}
         >
           <a href={paths.dictation}>Dictate</a>
+        </MenuItem>
+        <MenuItem
+          icon={<FaceIcon title="Face recognition" />}
+          active={isMenuItemActive(paths.faceRecognition)}
+        >
+          <a href={paths.faceRecognition}>Face recognition</a>
         </MenuItem>
       </Menu>
     </ProSidebar>

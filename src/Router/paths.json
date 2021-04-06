@@ -2,5 +2,6 @@
   "home": "/",
   "audioToText": "/audio-to-text",
   "dictation": "/dictation",
-  "printScreen": "/print-screen"
+  "printScreen": "/print-screen",
+  "faceRecognition": "/face-recognition"
 }
