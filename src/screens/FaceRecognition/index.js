@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
 
-import Chris_evans_Image from '../../assets/media/Chris_evans.jpg'
+import Chris_evans_Image from "../../assets/media/Chris_evans.jpg";
 import Card from "../../components/Card";
 import DropZone from "../../components/DropZone";
 import { UPLOAD_FACE_IMAGE } from "../../redux/dispatchActions/FaceRecognition";
@@ -12,7 +12,21 @@ function FaceRecognition(props) {
   const [uploadedFile, setUploadedFile] = useState({});
   const [previewImage, setPreviewImage] = useState("");
   const [previewImageDimensions, setPreviewImageDimensions] = useState({}); // { w: number, h: number }
-  // const [predictedImage, setPredictedImage] = useState("");
+  const [predictedImage, setPredictedImage] = useState("");
+
+  useEffect(() => {
+    // if predicted image is received, then empty the preview image
+    setPreviewImage("");
+    setPredictedImage(props.predictedImage);
+  }, [props.predictedImage !== '']);
+
+  useEffect(() => {
+    // if uploaded file is available
+    generatePreviewImageURL();
+    generatePreviewImageDimensions();
+    props.empty_predicted_image();
+  }, [uploadedFile]);
+
 
   const generatePreviewImageURL = async () => {
     try {
@@ -46,12 +60,6 @@ function FaceRecognition(props) {
       setPreviewImage("");
     }
   };
-
-  useEffect(() => {
-    generatePreviewImageURL();
-    generatePreviewImageDimensions();
-    props.empty_predicted_image();
-  }, [uploadedFile]);
 
   const getPreviewImageWidth = () => {
     try {
@@ -106,23 +114,29 @@ function FaceRecognition(props) {
       <div className="mt-3">
         <div className="row justify-content-between pl-3 pr-3">
           {/* Image preview here */}
-          <img
-            src={previewImage}
-            title="image preview"
-            alt="preview"
-            width={getPreviewImageWidth()}
-            height={300}
-            className="border border-dark mt-2 mb-2"
-          />
+          {/* Image preview will be displayed only if image is uploaded */}
+          {previewImage && (
+            <img
+              src={previewImage}
+              title="image preview"
+              alt="preview"
+              width={getPreviewImageWidth()}
+              height={300}
+              className="border border-dark mt-2 mb-2"
+            />
+          )}
           {/* Image predicted */}
-          <img
-            src={props.predictedImage}
-            title="image predicted"
-            alt="predicted"
-            width={getPreviewImageWidth()}
-            height={300}
-            className="border border-dark mt-2 mb-2"
-          />
+          {/* predicted image will be displayed only if image is available */}
+          {predictedImage && (
+            <img
+              src={predictedImage}
+              title="image predicted"
+              alt="predicted"
+              width={getPreviewImageWidth()}
+              height={300}
+              className="border border-dark mt-2 mb-2"
+            />
+          )}
         </div>
       </div>
       <div className="text-center pt-3">
