@@ -1,4 +1,10 @@
-import { LOADING, AUDIO_TO_TEXT, PRINT, FACE_RECOGNITION } from "./actionType";
+import {
+  LOADING,
+  AUDIO_TO_TEXT,
+  PRINT,
+  FACE_RECOGNITION,
+  IMAGE_TO_SKETCH,
+} from "./actionType";
 
 export const setLoading = () => ({ type: LOADING.SET_LOADING });
 export const resetLoading = () => ({ type: LOADING.RESET_LOADING });
@@ -12,6 +18,17 @@ export const audioToText_UPLOAD_AND_CONVERT = (payload) => ({
 // connects to facerecognition reducer through type
 export const faceRecognition_PREDICT_GENDER = (payload) => ({
   type: FACE_RECOGNITION.PREDICT_GENDER,
+  payload,
+});
+
+// once file got uploaded on the server, then the file name is stored in the reducer
+export const imageToSketch_UPLOADED_FILENAME = (payload) => ({
+  type: IMAGE_TO_SKETCH.UPLOADED_FILENAME,
+  payload,
+});
+// once file we receive the converted image, assign it to the reducer
+export const imageToSketch_CONVERTED_IMAGE = (payload) => ({
+  type: IMAGE_TO_SKETCH.CONVERTED_IMAGE,
   payload,
 });
 

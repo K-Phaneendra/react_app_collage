@@ -9,8 +9,13 @@ import {
   FaTrashAlt,
   FaMicrophone,
   FaFileAudio,
+  FaLinkedin
 } from "react-icons/fa";
 import { MdFace } from "react-icons/md";
+import { SiFlask } from "react-icons/si";
+import { HiSparkles } from "react-icons/hi";
+
+import openCV from './opencv.svg'
 
 export const PrinterIcon = AiFillPrinter;
 export const BackArrow = IoMdArrowRoundBack;
@@ -24,3 +29,7 @@ export const MicrophoneIcon = FaMicrophone;
 export const AudioFileIcon = FaFileAudio;
 export const MenuIcon = AiOutlineMenu;
 export const FaceIcon = MdFace;
+export const OpenCVSVG = openCV
+export const FlaskIcon = SiFlask
+export const LinkedInIcon = FaLinkedin
+export const SparklesIcon = HiSparkles
