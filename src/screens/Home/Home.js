@@ -1,22 +1,29 @@
 import React from "react";
 import Card from "../../components/Card";
+import paths from "../../Router/paths.json";
 
 const Home = () => {
   const listOfProjects = [
     {
       name: "Audio to text",
       description: "Upload an audio file to get text as an output.",
-      href: "/audio-to-text",
+      href: paths.audioToText,
     },
     {
       name: "Dictate",
       description: "Dictate to your browser to get text as an output.",
-      href: "/dictation",
+      href: paths.dictation,
     },
     {
       name: "Face recognition",
-      description: "Upload an image with human face, my machine learning model will tell if it is a male or female face",
-      href: "/face-recognition",
+      description:
+        "Upload an image with human face, my machine learning model will tell if it is a male or female face",
+      href: paths.faceRecognition,
+    },
+    {
+      name: "Sketch an image",
+      description: "Upload an image and create a sketch out of it",
+      href: paths.imageSketch,
     },
   ];
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { ProSidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 
-import { AudioFileIcon, FaceIcon, MicrophoneIcon } from "../assets/icons/icons";
+import { AudioFileIcon, FaceIcon, MicrophoneIcon, SparklesIcon } from "../assets/icons/icons";
 
 import paths from "../Router/paths.json";
 
@@ -38,6 +38,12 @@ function Sidemenu({ isMenuCollapsed, toggleSidemenu }) {
           active={isMenuItemActive(paths.faceRecognition)}
         >
           <a href={paths.faceRecognition}>Face recognition</a>
+        </MenuItem>
+        <MenuItem
+          icon={<SparklesIcon title="Sketch an image" />}
+          active={isMenuItemActive(paths.imageSketch)}
+        >
+          <a href={paths.imageSketch}>Sketch an image</a>
         </MenuItem>
       </Menu>
     </ProSidebar>

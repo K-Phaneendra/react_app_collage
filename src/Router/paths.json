@@ -3,5 +3,6 @@
   "audioToText": "/audio-to-text",
   "dictation": "/dictation",
   "printScreen": "/print-screen",
-  "faceRecognition": "/face-recognition"
+  "faceRecognition": "/face-recognition",
+  "imageSketch": "/image-sketch"
 }

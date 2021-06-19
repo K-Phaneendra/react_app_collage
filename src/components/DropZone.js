@@ -5,7 +5,7 @@ import { ToastMessage } from "./ToastMessage";
 import PropTypes from "prop-types";
 import { CloudUploadIcon } from "../assets/icons/icons";
 
-function DropZone({ setUploadedFile, message, accept }) {
+function DropZone({ setUploadedFile, message, accept, className }) {
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles.length === 0) {
       ToastMessage(
@@ -23,7 +23,7 @@ function DropZone({ setUploadedFile, message, accept }) {
   });
 
   return (
-    <div {...getRootProps()} className="dropzone-area">
+    <div {...getRootProps()} className={`dropzone-area ${className}`}>
       <input {...getInputProps()} />
       {isDragActive ? (
         <p>
@@ -40,11 +40,13 @@ function DropZone({ setUploadedFile, message, accept }) {
 
 DropZone.propTypes = {
   message: PropTypes.string,
-  accept: PropTypes.string
+  accept: PropTypes.string,
+  className: PropTypes.string,
 };
 DropZone.defaultProps = {
   message: "Drag and drop file(s) here, or click to select file(s)",
-  accept: 'audio/wav'
+  accept: "audio/wav",
+  className: "",
 };
 
 export default DropZone;

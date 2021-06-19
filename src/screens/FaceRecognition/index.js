@@ -68,9 +68,9 @@ function FaceRecognition(props) {
         const width = 300 * aspect;
         return width;
       } else {
-        throw {
+        throw new Error({
           message: "image is not yet uploaded",
-        };
+        });
       }
     } catch (err) {
       return "300";

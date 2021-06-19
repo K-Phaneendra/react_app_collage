@@ -13,6 +13,7 @@ import {
 } from "react-icons/fa";
 import { MdFace } from "react-icons/md";
 import { SiFlask } from "react-icons/si";
+import { HiSparkles } from "react-icons/hi";
 
 import openCV from './opencv.svg'
 
@@ -31,3 +32,4 @@ export const FaceIcon = MdFace;
 export const OpenCVSVG = openCV
 export const FlaskIcon = SiFlask
 export const LinkedInIcon = FaLinkedin
+export const SparklesIcon = HiSparkles
