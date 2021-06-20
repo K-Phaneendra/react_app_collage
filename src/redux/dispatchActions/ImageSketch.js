@@ -18,6 +18,10 @@ export const UPLOAD_IMAGE = (file) => {
     try {
       // upload image file to api
       dispatch(setLoading());
+      ToastMessage(
+        "info",
+        "Uploading your file"
+      );
       const uploadFileResponse = await uploadFile(file);
       dispatch(resetLoading());
       if (uploadFileResponse.data.status === "failed") {
@@ -38,7 +42,7 @@ export const UPLOAD_IMAGE = (file) => {
         ToastMessage(
           "success",
           "Uploaded successfully",
-          "File uploaded successfully, image prediction has begun"
+          "File uploaded successfully"
         );
         dispatch(
           imageToSketch_UPLOADED_FILENAME({
