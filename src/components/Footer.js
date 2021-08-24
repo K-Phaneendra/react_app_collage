@@ -2,13 +2,13 @@ import React from "react";
 import {
   FlaskIcon,
   GithubIcon,
-  LinkedInIcon,
   NodeJsIcon,
   OpenCVSVG,
   PythonIcon,
   ReactJsIcon,
 } from "../assets/icons/icons";
 import "../assets/styles/Footer.css";
+import ContactCard from "./ContactCard";
 
 function Footer() {
   return (
@@ -23,6 +23,10 @@ function Footer() {
           {process.env.REACT_APP_NAME}
         </a>
       </div>
+
+      <section className="d-flex">
+        <ContactCard />
+      </section>
 
       <section>
         <h5>
@@ -88,19 +92,6 @@ function Footer() {
               alt="Open CV"
               className="footer-tech-icon"
             />
-          </a>
-        </div>
-      </section>
-      <section className="d-flex">
-        <h3 className="l-h-2">Contact me</h3>
-        <div className="links">
-          <a
-            href="https://www.linkedin.com/in/phaneendra-kosanam-3b4756aa/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="LinkedIn - Phaneendra Kosanam"
-          >
-            <LinkedInIcon fill="" />
           </a>
         </div>
       </section>
