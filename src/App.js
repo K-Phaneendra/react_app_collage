@@ -10,6 +10,7 @@ import Loading from "./components/Loading";
 function App(props) {
   return (
     <div className="App">
+      {/* display loading */}
       {props.isLoading && <Loading />}
       <Header />
       <div className="container pt-3">
