@@ -15,7 +15,7 @@ import {
 import { imageToSketch_UPLOADED_FILENAME } from "../../redux/reducerActions";
 import Slider from "../../components/Slider";
 
-function ImageToCartoon(props) {
+function ImageToOilPaint(props) {
   const { tabKey } = props;
   const [uploadedFile, setUploadedFile] = useState({});
   // values of S and R given by the user
@@ -216,4 +216,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ImageToCartoon);
+export default connect(mapStateToProps, mapDispatchToProps)(ImageToOilPaint);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Tabs, Tab } from "react-bootstrap";
 
-import ImageToCartoon from "./ImageToCartoon";
+import ImageToOilPaint from "./ImageToOilPaint";
 
 
 const TABS = ["oilPaint", "enhance"];
@@ -23,7 +23,7 @@ function ImageSketch() {
         onSelect={(k) => setTabKey(k)}
       >
         <Tab eventKey={TABS[0]} title="Oil paint">
-          <ImageToCartoon tabKey={TABS[0]} />
+          <ImageToOilPaint tabKey={TABS[0]} />
         </Tab>
         <Tab eventKey={TABS[1]} title="Enhance">
           <>adsad</>

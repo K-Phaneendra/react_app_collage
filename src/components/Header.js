@@ -30,7 +30,7 @@ const Header = () => {
             className="d-inline-block align-top"
             title={process.env.REACT_APP_NAME}
           />
-          Phani's app collage
+          {process.env.REACT_APP_NAME}
         </Navbar.Brand>
       </Navbar>
       <Sidemenu

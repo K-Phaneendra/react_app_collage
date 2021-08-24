@@ -9,7 +9,8 @@ import {
   FaTrashAlt,
   FaMicrophone,
   FaFileAudio,
-  FaLinkedin
+  FaLinkedin,
+  FaStackOverflow
 } from "react-icons/fa";
 import { MdFace } from "react-icons/md";
 import { SiFlask } from "react-icons/si";
@@ -33,3 +34,4 @@ export const OpenCVSVG = openCV
 export const FlaskIcon = SiFlask
 export const LinkedInIcon = FaLinkedin
 export const SparklesIcon = HiSparkles
+export const StackOverflowIcon = FaStackOverflow
