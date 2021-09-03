@@ -26,7 +26,7 @@ function ImageSketch() {
           <ImageToOilPaint tabKey={TABS[0]} />
         </Tab>
         <Tab eventKey={TABS[1]} title="Enhance">
-          <>adsad</>
+          <>This page is under construction. Thank you for exploring this website.</>
         </Tab>
       </Tabs>
 
