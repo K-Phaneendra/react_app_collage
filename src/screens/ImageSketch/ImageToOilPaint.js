@@ -152,8 +152,8 @@ function ImageToOilPaint(props) {
             {props.convertedImage && (
               <img
                 src={props.convertedImage}
-                title="image predicted"
-                alt="predicted"
+                title="converted image"
+                alt="converted"
                 height={300}
                 className="border border-dark mt-2 mb-2"
               />
