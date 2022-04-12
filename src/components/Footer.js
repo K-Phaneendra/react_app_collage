@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  EmailIcon,
   FlaskIcon,
   GithubIcon,
   NodeJsIcon,
@@ -9,6 +10,7 @@ import {
 } from "../assets/icons/icons";
 import "../assets/styles/Footer.css";
 import ContactCard from "./ContactCard";
+import paths from "../Router/paths.json";
 
 function Footer() {
   return (
@@ -93,6 +95,13 @@ function Footer() {
               className="footer-tech-icon"
             />
           </a>
+        </div>
+      </section>
+
+      <section className="d-flex">
+        <div>
+          <EmailIcon title="Contact me" />
+          <a href={paths.contact} title="Contact me">Contact me</a>
         </div>
       </section>
     </footer>

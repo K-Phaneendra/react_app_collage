@@ -4,5 +4,6 @@
   "dictation": "/dictation",
   "printScreen": "/print-screen",
   "faceRecognition": "/face-recognition",
-  "imageSketch": "/image-sketch"
+  "imageSketch": "/image-sketch",
+  "contact": "/contact"
 }

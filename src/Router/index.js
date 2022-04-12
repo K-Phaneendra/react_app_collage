@@ -7,6 +7,7 @@ import PrintableScreen from "../screens/PrintableScreen";
 import paths from './paths.json';
 import FaceRecognition from "../screens/FaceRecognition";
 import ImageSketch from "../screens/ImageSketch";
+import Contact from "../screens/Contact";
 
 export default function Router() {
   const location = useLocation();
@@ -35,6 +36,10 @@ export default function Router() {
     {
       pageLink: paths.printScreen,
       view: PrintableScreen,
+    },
+    {
+      pageLink: paths.contact,
+      view: Contact,
     },
   ];
 

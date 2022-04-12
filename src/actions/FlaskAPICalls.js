@@ -58,3 +58,12 @@ export const convertImageToSketch = async (body) => {
   const APIResponse = await POST(url, body, axiosConfig);
   return APIResponse;
 };
+
+export const sendContactEmail = async (body) => {
+  const url = `${FlaskAPI}/send-contact-email`;
+  const axiosConfig = {
+    headers: {},
+  };
+  const APIResponse = await POST(url, { formDetails: body }, axiosConfig);
+  return APIResponse;
+};
