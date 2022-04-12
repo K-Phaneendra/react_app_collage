@@ -12,7 +12,7 @@ import {
   FaLinkedin,
   FaStackOverflow
 } from "react-icons/fa";
-import { MdFace } from "react-icons/md";
+import { MdFace, MdEmail } from "react-icons/md";
 import { SiFlask } from "react-icons/si";
 import { HiSparkles } from "react-icons/hi";
 
@@ -35,3 +35,4 @@ export const FlaskIcon = SiFlask
 export const LinkedInIcon = FaLinkedin
 export const SparklesIcon = HiSparkles
 export const StackOverflowIcon = FaStackOverflow
+export const EmailIcon = MdEmail

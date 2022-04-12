@@ -1,7 +1,7 @@
 import React from "react";
 import { ProSidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 
-import { AudioFileIcon, FaceIcon, MicrophoneIcon, SparklesIcon } from "../assets/icons/icons";
+import { AudioFileIcon, FaceIcon, MicrophoneIcon, SparklesIcon, EmailIcon } from "../assets/icons/icons";
 
 import paths from "../Router/paths.json";
 
@@ -44,6 +44,12 @@ function Sidemenu({ isMenuCollapsed, toggleSidemenu }) {
           active={isMenuItemActive(paths.imageSketch)}
         >
           <a href={paths.imageSketch}>Sketch an image</a>
+        </MenuItem>
+        <MenuItem
+          icon={<EmailIcon title="Contact me" />}
+          active={isMenuItemActive(paths.contact)}
+        >
+          <a href={paths.contact}>Contact me</a>
         </MenuItem>
       </Menu>
     </ProSidebar>
