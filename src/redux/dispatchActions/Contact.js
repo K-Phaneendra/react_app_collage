@@ -13,7 +13,7 @@ export const SEND_CONTACT_EMAIL = (formData) => {
       dispatch(setLoading());
       ToastMessage(
         "info",
-        "Trying to send an email to "+formData.email,
+        "Trying to send an email to "+formData.to_email,
         "A thank you email will be sent to you"
       );
       const response = await sendContactEmail(formData);
