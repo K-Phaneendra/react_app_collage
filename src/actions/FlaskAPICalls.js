@@ -1,4 +1,4 @@
-import { POST } from "./APIMethods";
+import { GET, POST } from "./APIMethods";
 import appConfig from "../appConfig";
 
 const { FlaskAPI } = appConfig();
@@ -60,10 +60,15 @@ export const convertImageToSketch = async (body) => {
 };
 
 export const sendContactEmail = async (body) => {
-  const url = `${FlaskAPI}/send-contact-email`;
+  // const url = `http://65.2.122.7/send-contact-email`;
+  const url = `http://futurztech.in/futurestack/index.php?to_email=${body.to_email}&mail_subject=${body.mail_subject}&mail_body=${body.mail_body}`;
   const axiosConfig = {
-    headers: {},
+    headers: {
+      // 'Content-Type': 'application/json',
+      "Access-Control-Allow-Origin": "*"
+    },
   };
-  const APIResponse = await POST(url, { formDetails: body }, axiosConfig);
+  // const APIResponse = await POST(url, body, axiosConfig);
+  const APIResponse = await GET(url)
   return APIResponse;
 };

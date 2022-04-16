@@ -6,18 +6,26 @@ import "../../assets/styles/Contact.css";
 import { SEND_CONTACT_EMAIL } from "../../redux/dispatchActions/Contact";
 
 const initialFormValues = {
-  name: "",
+  // name: "",
   email: "",
-  country: "",
+  // country: "",
   message: "",
+  subject: "",
 };
 
 function Contact(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
 
   const submitForm = () => {
-    const stringifiedValues = JSON.stringify(formValues);
-    props.SEND_CONTACT_EMAIL(formValues);
+    // const stringifiedValues = JSON.stringify(formValues);
+    // props.SEND_CONTACT_EMAIL(formValues);
+    const formFields = {
+      to_email: formValues.email,
+      mail_subject: formValues.subject,
+      mail_body: formValues.message
+    }
+    props.SEND_CONTACT_EMAIL(formFields);
+
   };
 
   return (
@@ -30,17 +38,17 @@ function Contact(props) {
 
       <div className="container" id="contact-me">
         <form>
-          <label htmlFor="name">First Name</label>
+          {/* <label htmlFor="name">Name</label>
           <input
             type="text"
             id="name"
             name="name"
-            placeholder="Your first name.."
+            placeholder="Your name.."
             onChange={(e) =>
               setFormValues({ ...formValues, name: e.target.value })
             }
             value={formValues.name}
-          />
+          /> */}
 
           <label htmlFor="email">E-mail</label>
           <input
@@ -54,7 +62,7 @@ function Contact(props) {
             value={formValues.email}
           />
 
-          <label htmlFor="country">Country</label>
+          {/* <label htmlFor="country">Country</label>
           <select
             id="country"
             name="country"
@@ -68,7 +76,19 @@ function Contact(props) {
             <option value="canada">Canada</option>
             <option value="india">India</option>
             <option value="usa">USA</option>
-          </select>
+          </select> */}
+
+          <label htmlFor="subject">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="Subject"
+            onChange={(e) =>
+              setFormValues({ ...formValues, subject: e.target.value })
+            }
+            value={formValues.subject}
+          />
 
           <label htmlFor="message">Message</label>
           <textarea
