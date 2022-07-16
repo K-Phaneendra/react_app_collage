@@ -3,6 +3,7 @@ import Card from "../../components/Card";
 import paths from "../../Router/paths.json";
 
 const Home = () => {
+  // List of all the projects
   const listOfProjects = [
     {
       name: "Audio to text",
@@ -26,10 +27,12 @@ const Home = () => {
       href: paths.imageSketch,
     },
   ];
+  // RETURN HTML OF HOME SCREEN
   return (
     <div className="listOfProjects">
       <h1 className="section-title">List of projects</h1>
       <div className="row">
+        {/* return list of card items */}
         {listOfProjects.map((item, i) => {
           return (
             <div key={i} className="col-md-4 pb-3">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Button } from "react-bootstrap";
+import { Navbar, Button } from "react-bootstrap";
 
 import Logo from "../assets/images/logo.svg";
 import { MenuIcon } from "../assets/icons/icons";
