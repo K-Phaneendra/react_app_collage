@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import Card from "../../components/Card";
 import paths from "../../Router/paths.json";
+import { PAGE_VIEWS } from "../../redux/dispatchActions/Home";
 
-const Home = () => {
+const Home = (props) => {
   const listOfProjects = [
     {
       name: "Audio to text",
@@ -26,6 +28,10 @@ const Home = () => {
       href: paths.imageSketch,
     },
   ];
+
+  useEffect(() => {
+    props.PAGE_VIEWS();
+  }, []);
   return (
     <div className="listOfProjects">
       <h1 className="section-title">List of projects</h1>
@@ -47,4 +53,11 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => ({});
+const mapDispatchToProps = (dispatch) => {
+  return {
+    PAGE_VIEWS: () => dispatch(PAGE_VIEWS()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
