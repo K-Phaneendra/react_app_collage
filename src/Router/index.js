@@ -8,6 +8,7 @@ import paths from './paths.json';
 import FaceRecognition from "../screens/FaceRecognition";
 import ImageSketch from "../screens/ImageSketch";
 import Contact from "../screens/Contact";
+import Chat from "../screens/Chat";
 
 export default function Router() {
   const location = useLocation();
@@ -40,6 +41,10 @@ export default function Router() {
     {
       pageLink: paths.contact,
       view: Contact,
+    },
+    {
+      pageLink: paths.chat,
+      view: Chat,
     },
   ];
 

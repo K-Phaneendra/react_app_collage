@@ -75,6 +75,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # Deployed on
 URL: https://react-app-collage.web.app/
 
+# Connected backend applications
+
+1. https://github.com/K-Phaneendra/conda_flask-app
+2. https://github.com/K-Phaneendra/llm-app
+
 # Hosting process
 
 1. run "npm run build"

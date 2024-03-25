@@ -1,0 +1,16 @@
+.chatbot-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.chatbot-messages {
+  height: 300px;
+  overflow-y: scroll;
+  margin-bottom: 10px;
+}
+
+.chatbot-form {
+  display: flex;
+  align-items: center;
+}

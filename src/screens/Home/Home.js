@@ -27,6 +27,11 @@ const Home = (props) => {
       description: "Upload an image and create a sketch out of it",
       href: paths.imageSketch,
     },
+    {
+      name: "Chat",
+      description: "This is an LLM chatbot, which is using Langchain and Pinecone(Vector DB) behind the scenes",
+      href: paths.chat,
+    },
   ];
 
   useEffect(() => {

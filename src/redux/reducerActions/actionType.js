@@ -19,3 +19,7 @@ export const IMAGE_TO_SKETCH = {
 export const PRINT = {
   CONTENT: "CONTENT",
 };
+
+export const CHAT = {
+  RESPONSE: "RESPONSE"
+}

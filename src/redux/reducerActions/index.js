@@ -4,6 +4,7 @@ import {
   PRINT,
   FACE_RECOGNITION,
   IMAGE_TO_SKETCH,
+  CHAT,
 } from "./actionType";
 
 export const setLoading = () => ({ type: LOADING.SET_LOADING });
@@ -36,3 +37,8 @@ export const set_printable_content = (payload) => ({
   type: PRINT.CONTENT,
   payload,
 });
+
+export const set_llm_response = (payload) => ({
+  type: CHAT.RESPONSE,
+  payload
+})
